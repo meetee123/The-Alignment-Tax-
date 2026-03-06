@@ -11,7 +11,6 @@ Architecture
 - Full integration with data_generator, alignment_model, visualizations
 
 All estimates are historical precedent-based and NOT deterministic predictions.
-Synthetic data calibrated to real-world patterns.
 """
 
 from __future__ import annotations
