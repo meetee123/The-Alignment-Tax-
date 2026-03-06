@@ -35,7 +35,7 @@ st.set_page_config(
     initial_sidebar_state="expanded",
     menu_items={
         "About": (
-            "**The Alignment Tax** — A structured analytical framework estimating "
+            "**The Alignment Tax**: A structured analytical framework estimating "
             "the economic costs and benefits of great-power alignment choices for "
             "African states. All data is calibrated to real-world "
             "patterns. NOT deterministic predictions."
