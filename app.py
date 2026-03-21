@@ -85,21 +85,33 @@ st.markdown(
     /* ── Global typography ── */
     html, body, [class*="css"] {
         font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-        color: #13343B;
+        color: #E6EDF3;
     }
 
     /* ── App background ── */
     .stApp {
-        background-color: #FCFAF6;
+        background-color: #0D1117;
+    }
+
+    /* ── Force all widget labels visible in dark mode ── */
+    [data-testid="stWidgetLabel"] p,
+    [data-testid="stWidgetLabel"] label,
+    .stSlider label,
+    .stSelectbox label,
+    .stRadio label,
+    .stCheckbox label,
+    .stTextInput label,
+    .stNumberInput label {
+        color: #E6EDF3 !important;
     }
 
     /* ── Sidebar ── */
     [data-testid="stSidebar"] {
-        background-color: #1B474D;
-        border-right: 1px solid #13343B;
+        background-color: #0F1923;
+        border-right: 1px solid #21262D;
     }
     [data-testid="stSidebar"] * {
-        color: #FCFAF6 !important;
+        color: #E6EDF3 !important;
     }
     [data-testid="stSidebar"] .stRadio label {
         font-size: 0.88rem;
@@ -109,97 +121,107 @@ st.markdown(
     [data-testid="stSidebar"] .stSelectbox label,
     [data-testid="stSidebar"] .stSlider label {
         font-size: 0.82rem;
-        color: #BCE2E7 !important;
+        color: #8B949E !important;
     }
     [data-testid="stSidebar"] a {
-        color: #BCE2E7 !important;
+        color: #8B949E !important;
     }
     [data-testid="stSidebar"] hr {
-        border-color: rgba(188, 226, 231, 0.25) !important;
+        border-color: rgba(33, 38, 45, 0.6) !important;
     }
 
     /* ── Header band ── */
     .alignment-header {
-        background: linear-gradient(135deg, #1B474D 0%, #20808D 100%);
+        background: linear-gradient(135deg, #1B474D 0%, #1B6CA8 100%);
         padding: 1.4rem 2rem;
         border-radius: 8px;
         margin-bottom: 1.5rem;
-        box-shadow: 0 2px 12px rgba(27,71,77,0.18);
+        box-shadow: 0 2px 12px rgba(0,0,0,0.3);
     }
     .alignment-header h1 {
-        color: #FCFAF6 !important;
+        color: #E6EDF3 !important;
         font-size: 1.9rem;
         font-weight: 700;
         margin: 0;
         letter-spacing: -0.02em;
     }
     .alignment-header p {
-        color: #BCE2E7 !important;
+        color: #8B949E !important;
         font-size: 0.9rem;
         margin: 0.25rem 0 0 0;
     }
 
     /* ── Section headings ── */
     h2 {
-        color: #1B474D;
+        color: #E6EDF3;
         font-size: 1.35rem;
         font-weight: 600;
-        border-bottom: 2px solid #20808D;
+        border-bottom: 2px solid #1B6CA8;
         padding-bottom: 0.3rem;
         margin-top: 1.5rem;
     }
     h3 {
-        color: #20808D;
+        color: #1B6CA8;
         font-size: 1.05rem;
         font-weight: 600;
     }
 
     /* ── Metric cards ── */
     [data-testid="stMetric"] {
-        background: #F3F3EE;
-        border: 1px solid #E5E3D4;
+        background: #161B22;
+        border: 1px solid #21262D;
         border-radius: 8px;
         padding: 0.9rem 1.2rem;
-        box-shadow: 0 1px 4px rgba(27,71,77,0.07);
+        box-shadow: 0 1px 4px rgba(0,0,0,0.2);
     }
     [data-testid="stMetricLabel"] {
         font-size: 0.78rem !important;
         font-weight: 600 !important;
-        color: #848456 !important;
+        color: #8B949E !important;
         text-transform: uppercase;
         letter-spacing: 0.05em;
+        overflow: visible !important;
+        white-space: normal !important;
     }
     [data-testid="stMetricValue"] {
         font-size: 1.55rem !important;
         font-weight: 700 !important;
-        color: #1B474D !important;
+        color: #E6EDF3 !important;
+        overflow: visible !important;
+        white-space: normal !important;
+    }
+    [data-testid="stMetricDelta"] {
+        color: #8B949E !important;
+    }
+    [data-testid="stMetricDelta"] svg {
+        stroke: #8B949E !important;
     }
 
     /* ── Tabs ── */
     .stTabs [data-baseweb="tab-list"] {
-        background: #F3F3EE;
+        background: #161B22;
         border-radius: 8px 8px 0 0;
         padding: 0 0.5rem;
         gap: 0.2rem;
-        border-bottom: 2px solid #E5E3D4;
+        border-bottom: 2px solid #21262D;
     }
     .stTabs [data-baseweb="tab"] {
         font-size: 0.85rem;
         font-weight: 500;
-        color: #848456;
+        color: #8B949E;
         padding: 0.6rem 1rem;
         border-radius: 6px 6px 0 0;
     }
     .stTabs [aria-selected="true"] {
-        color: #1B474D !important;
-        background: white !important;
-        border-bottom: 2px solid #20808D !important;
+        color: #E6EDF3 !important;
+        background: #1B6CA8 !important;
+        border-bottom: 2px solid #1B6CA8 !important;
     }
 
     /* ── Buttons ── */
     .stButton > button {
-        background: #20808D;
-        color: white;
+        background: #1B6CA8;
+        color: #E6EDF3;
         border: none;
         border-radius: 6px;
         font-weight: 600;
@@ -209,81 +231,81 @@ st.markdown(
     }
     .stButton > button:hover {
         background: #1B474D;
-        color: white;
+        color: #E6EDF3;
         border: none;
     }
 
     /* ── Expander ── */
     .streamlit-expanderHeader {
-        background: #F3F3EE;
-        border: 1px solid #E5E3D4;
+        background: #161B22;
+        border: 1px solid #21262D;
         border-radius: 6px;
         font-size: 0.85rem;
         font-weight: 500;
-        color: #1B474D;
+        color: #E6EDF3;
     }
 
     /* ── Disclaimer banner ── */
     .disclaimer-banner {
-        background: linear-gradient(90deg, #FFF8E7 0%, #FFF3D0 100%);
-        border: 1px solid #FFC553;
+        background: #161B22;
+        border: 1px solid #21262D;
         border-left: 4px solid #FFC553;
         border-radius: 6px;
         padding: 0.65rem 1rem;
         font-size: 0.82rem;
-        color: #6E522B;
+        color: #8B949E;
         margin: 0.75rem 0 1.25rem 0;
     }
     .disclaimer-banner strong {
-        color: #A84B2F;
+        color: #FFC553;
     }
 
     /* ── Info cards ── */
     .info-card {
-        background: #F3F3EE;
-        border: 1px solid #E5E3D4;
-        border-left: 4px solid #20808D;
+        background: #161B22;
+        border: 1px solid #21262D;
+        border-left: 4px solid #1B6CA8;
         border-radius: 6px;
         padding: 0.85rem 1.1rem;
         font-size: 0.85rem;
-        color: #13343B;
+        color: #E6EDF3;
         margin: 0.5rem 0;
     }
     .info-card.warning {
-        border-left-color: #A84B2F;
-        background: #FFF8F6;
+        border-left-color: #F85149;
+        background: #161B22;
     }
     .info-card.success {
-        border-left-color: #848456;
+        border-left-color: #3FB950;
     }
 
     /* ── Dataframe styling ── */
     .stDataFrame {
-        border: 1px solid #E5E3D4;
+        border: 1px solid #21262D;
         border-radius: 6px;
     }
 
     /* ── Selectbox / slider ── */
     .stSelectbox > div > div {
-        border-color: #D6D4C5 !important;
+        border-color: #21262D !important;
         border-radius: 6px !important;
     }
     .stSlider > div > div > div > div {
-        background: #20808D !important;
+        background: #1B6CA8 !important;
     }
 
     /* ── Section divider ── */
     .section-divider {
         border: none;
-        border-top: 1px solid #E5E3D4;
+        border-top: 1px solid #21262D;
         margin: 1.5rem 0;
     }
 
     /* ── Layer badge ── */
     .layer-badge {
         display: inline-block;
-        background: #1B474D;
-        color: #BCE2E7;
+        background: #1B6CA8;
+        color: #E6EDF3;
         font-size: 0.72rem;
         font-weight: 600;
         letter-spacing: 0.08em;
@@ -292,6 +314,32 @@ st.markdown(
         border-radius: 4px;
         margin-right: 0.4rem;
         vertical-align: middle;
+    }
+
+    /* ── Credibility card min-height ── */
+    [data-testid="stVerticalBlock"] > div:has([data-testid="stMetricValue"]) {
+        min-height: 120px;
+    }
+
+    /* ── Caption text ── */
+    .stCaption, [data-testid="stCaptionContainer"] {
+        color: #8B949E !important;
+    }
+
+    /* ── Download button ── */
+    .stDownloadButton > button {
+        background: #161B22;
+        color: #E6EDF3;
+        border: 1px solid #21262D;
+    }
+    .stDownloadButton > button:hover {
+        background: #1B6CA8;
+        border-color: #1B6CA8;
+    }
+
+    /* ── Spinner ── */
+    .stSpinner > div {
+        color: #8B949E !important;
     }
     </style>
     """,
@@ -341,6 +389,12 @@ def _engine():
 @st.cache_resource(show_spinner=False)
 def _panel():
     return PanelEstimator()
+
+
+def _md_to_html(text: str) -> str:
+    """Convert markdown **bold** to HTML <strong> for use in HTML divs."""
+    import re
+    return re.sub(r'\*\*(.+?)\*\*', r'<strong>\1</strong>', text)
 
 
 # ═════════════════════════════════════════════════════════════════════════════
@@ -445,12 +499,16 @@ with st.sidebar:
     st.markdown(
         """
         <div style="padding: 0.5rem 0 1rem 0;">
-            <div style="font-size: 1.35rem; font-weight: 700; letter-spacing: -0.02em;">
+            <div style="font-size: 1.35rem; font-weight: 700; letter-spacing: -0.02em; color: #E6EDF3;">
                  The Superpowers Alignment Tax
             </div>
-            <div style="font-size: 0.78rem; color: #BCE2E7; margin-top: 0.2rem; line-height: 1.4;">
+            <div style="font-size: 0.78rem; color: #8B949E; margin-top: 0.2rem; line-height: 1.4;">
                 Quantifying the economic cost of<br>
                 great-power alignment for African states
+            </div>
+            <div style="color:#8B949E; font-variant:small-caps; letter-spacing:0.08em;
+                        font-size:0.72rem; margin-top:0.4rem;">
+                Designing Decision Systems
             </div>
         </div>
         """,
@@ -466,7 +524,7 @@ with st.sidebar:
             "📡  Alignment Signal Coding",
             "💰  Economic Dependency",
             "⚖️  Alignment Tax Calculator",
-            "🇬🇭  Ghana Deep Dive",
+            "📊  Analyst's Workbench",
         ],
         label_visibility="collapsed",
     )
@@ -538,7 +596,7 @@ with st.sidebar:
 
     st.divider()
     st.markdown(
-        '<div style="font-size: 0.72rem; color: #BCE2E7; line-height: 1.6;">'
+        '<div style="font-size: 0.72rem; color: #8B949E; line-height: 1.6;">'
         "Synthetic data · Research instrument<br>"
         "Not a policy recommendation tool"
         "</div>",
@@ -581,18 +639,19 @@ def page_overview():
     avg_china = latest["china_alignment"].mean()
     avg_us = latest["us_alignment"].mean()
 
-    col1, col2, col3, col4, col5 = st.columns(5)
+    col1, col2, col3 = st.columns(3)
     with col1:
         st.metric("Countries Analyzed", f"{n_countries}", help="All 54 African states in UNGA dataset")
     with col2:
         st.metric("Focus Countries", f"{len(FOCUS_COUNTRIES)}", help="15 major African economies with full modelling")
     with col3:
-        st.metric("Total Trade Exposure", f"${total_trade:.0f}B", help="Combined US+China+Russia bilateral trade (15 focus countries)")
+        st.metric("Trade Exposure", f"${total_trade:.0f}B", help="Combined US+China+Russia bilateral trade (15 focus countries)")
+    col4, col5, _ = st.columns(3)
     with col4:
-        st.metric("Avg. China Alignment", f"{avg_china:.3f}", help="Mean UNGA agreement rate with China (2025)")
+        st.metric("Avg China Align", f"{avg_china:.3f}", help="Mean UNGA agreement rate with China (2025)")
     with col5:
         st.metric(
-            "Avg. Alignment Gap (CN-US)",
+            "Avg Align Gap",
             f"{avg_us_gap:.3f}",
             delta=f"China leads by {avg_us_gap:.3f}",
             delta_color="off",
@@ -602,7 +661,7 @@ def page_overview():
     st.divider()
 
     # ── 3D Scatter ─────────────────────────────────────────────────────────────
-    st.subheader("3D Alignment Space — All 54 African Countries")
+    st.subheader("3D Alignment Space — All 54 African Countries", anchor=False)
     st.markdown(
         '<div class="info-card">'
         "Each point represents a country's position in the three-dimensional space "
@@ -622,7 +681,7 @@ def page_overview():
     st.divider()
 
     # ── Alignment Heatmap with controls ───────────────────────────────────────
-    st.subheader("Alignment Heatmap — Country Rankings")
+    st.subheader("Alignment Heatmap — Country Rankings", anchor=False)
 
     ctrl_col1, ctrl_col2 = st.columns([2, 3])
     with ctrl_col1:
@@ -708,7 +767,7 @@ def page_signal_coding():
 
     # ── Tab 1: UNGA Voting ─────────────────────────────────────────────────────
     with tab_unga:
-        st.subheader("UNGA Voting Alignment — Time Series")
+        st.subheader("UNGA Voting Alignment — Time Series", anchor=False)
         country_choice = st.selectbox(
             "Select country",
             options=FOCUS_COUNTRIES,
@@ -786,13 +845,16 @@ def page_signal_coding():
                     gridcolor=BRAND["grid"],
                 ),
                 height=480,
-                legend=dict(orientation="h", x=0.5, xanchor="center", y=-0.18),
+                legend=dict(orientation="h", x=0.5, xanchor="center", y=-0.18,
+                            font=dict(color=BRAND["text"], size=12),
+                            bgcolor="rgba(22,27,34,0.9)", bordercolor=BRAND["border"]),
                 font=dict(family="Inter, Arial, sans-serif", color=BRAND["text"]),
                 hoverlabel=dict(
-                    bgcolor="white",
+                    bgcolor=BRAND["bg_paper"],
                     bordercolor=BRAND["border"],
                     font_size=12,
                     font_family="Inter, Arial, sans-serif",
+                    font_color=BRAND["text"],
                 ),
             )
             st.plotly_chart(fig, use_container_width=True)
@@ -811,7 +873,7 @@ def page_signal_coding():
 
     # ── Tab 2: Iran Crisis Signals ─────────────────────────────────────────────
     with tab_signals:
-        st.subheader("2026 Iran Crisis — Diplomatic Signal Coding (15 Focus Countries)")
+        st.subheader("2026 Iran Crisis — Diplomatic Signal Coding (15 Focus Countries)", anchor=False)
         st.markdown(
             '<div class="info-card">'
             "Diplomatic signals are coded across five dimensions for the hypothetical "
@@ -860,7 +922,7 @@ def page_signal_coding():
             .applymap(_color_composite, subset=["Composite US Align."])
             .set_properties(**{"font-size": "12px"})
         )
-        st.dataframe(styled, use_container_width=True, height=520)
+        st.dataframe(styled, use_container_width=True, height=580)
 
         st.markdown(
             '<div class="info-card">'
@@ -874,7 +936,7 @@ def page_signal_coding():
 
     # ── Tab 3: Credibility Chart ───────────────────────────────────────────────
     with tab_cred:
-        st.subheader("Alignment Credibility Signals")
+        st.subheader("Alignment Credibility Signals", anchor=False)
         cred_country = st.selectbox(
             "Select country",
             options=FOCUS_COUNTRIES,
@@ -889,23 +951,26 @@ def page_signal_coding():
 
         # Compute and display scores
         bmod = BehavioralModifiers()
-        for posture in ("US_ALIGNMENT", "CHINA_ALIGNMENT", "NEUTRALITY"):
+        _posture_labels = {
+            "US_ALIGNMENT": "US Alignment",
+            "CHINA_ALIGNMENT": "China Alignment",
+            "NEUTRALITY": "Neutrality",
+        }
+        cred_cols = st.columns(3)
+        for i, posture in enumerate(("US_ALIGNMENT", "CHINA_ALIGNMENT", "NEUTRALITY")):
             mult, info = bmod.commitment_credibility(cred_country, posture, unga_df)
-            col_a, col_b, col_c = st.columns([2, 1, 4])
-            with col_a:
-                st.write(f"**{posture.replace('_', ' ')}**")
-            with col_b:
+            with cred_cols[i]:
+                st.markdown(f"**{_posture_labels[posture]}**")
                 st.metric(
                     "Credibility",
                     f"{info['credibility_score']:.2f}",
                     help="0 = fully incredible, 1 = fully credible",
                 )
-            with col_c:
                 st.caption(info["interpretation"])
 
     # ── Tab 4: Methodology ────────────────────────────────────────────────────
     with tab_method:
-        st.subheader("Signal Coding Methodology")
+        st.subheader("Signal Coding Methodology", anchor=False)
         st.markdown(
             """
             #### UNGA Voting Alignment Score
@@ -1000,20 +1065,21 @@ def page_economic_dependency():
     # ── Primary country metrics ────────────────────────────────────────────────
     row = econ_df[econ_df["country"] == primary_country].iloc[0]
 
-    m1, m2, m3, m4, m5, m6 = st.columns(6)
+    m1, m2, m3 = st.columns(3)
     with m1:
         st.metric("US Trade", _fmt_bn(row["us_trade_bn"]))
     with m2:
         st.metric("China Trade", _fmt_bn(row["china_trade_bn"]))
     with m3:
         st.metric("US ODA", f"${row['us_oda_mn']:.0f}M")
+    m4, m5, m6 = st.columns(3)
     with m4:
         st.metric("China Debt Share", f"{row['china_debt_pct_external']:.1f}%")
     with m5:
         st.metric("AGOA Value", f"${row['agoa_value_mn']:.0f}M")
     with m6:
         st.metric(
-            "China Trade Dominance",
+            "China Trade Dom.",
             f"{row['china_trade_dominance']:.1%}",
             help="China's share of this country's total great-power trade",
         )
@@ -1047,7 +1113,7 @@ def page_economic_dependency():
                 st.error(f"Radar (comparison) error: {e}")
 
     # ── Detailed bilateral exposure table ─────────────────────────────────────
-    st.subheader("Detailed Bilateral Exposure")
+    st.subheader("Detailed Bilateral Exposure", anchor=False)
 
     def _build_exposure_table(r):
         rows = [
@@ -1082,7 +1148,7 @@ def page_economic_dependency():
 
     # ── Trade dominance metrics bar ────────────────────────────────────────────
     st.divider()
-    st.subheader("China Trade Dominance — All Focus Countries")
+    st.subheader("China Trade Dominance — All Focus Countries", anchor=False)
 
     dom_df = econ_df[["country", "china_trade_dominance", "us_trade_share"]].copy()
     dom_df = dom_df.sort_values("china_trade_dominance", ascending=True)
@@ -1119,13 +1185,19 @@ def page_economic_dependency():
             text="Great-Power Trade Share (% of bilateral total)",
             x=0.5,
             xanchor="center",
+            font=dict(color=BRAND["text"]),
         ),
         xaxis=dict(title="Share of great-power trade", tickformat=".0%", gridcolor=BRAND["grid"]),
         yaxis=dict(gridcolor=BRAND["grid"]),
         barmode="overlay",
         height=500,
-        legend=dict(orientation="h", x=0.5, xanchor="center", y=-0.18),
+        margin=dict(l=160, r=60, t=70, b=60),
+        legend=dict(orientation="h", x=0.5, xanchor="center", y=-0.18,
+                    font=dict(color=BRAND["text"], size=12),
+                    bgcolor="rgba(22,27,34,0.9)", bordercolor=BRAND["border"]),
         font=dict(family="Inter, Arial, sans-serif", color=BRAND["text"]),
+        hoverlabel=dict(bgcolor=BRAND["bg_paper"], bordercolor=BRAND["border"],
+                        font_color=BRAND["text"]),
     )
     st.plotly_chart(fig_dom, use_container_width=True)
 
@@ -1155,66 +1227,88 @@ def page_calculator():
 
     # ── Parameter panel ────────────────────────────────────────────────────────
     with st.container():
-        p_col1, p_col2, p_col3 = st.columns([2, 2, 2])
-
-        with p_col1:
+        # Row 1: Dropdowns
+        dd1, dd2, dd3 = st.columns(3)
+        with dd1:
             country = st.selectbox("Country", options=FOCUS_COUNTRIES, index=0, key="calc_country")
+        with dd2:
             posture = st.selectbox(
                 "Alignment posture",
                 options=["US_ALIGNMENT", "CHINA_ALIGNMENT", "NEUTRALITY"],
                 format_func=lambda x: {
-                    "US_ALIGNMENT": "🇺🇸 US Alignment",
-                    "CHINA_ALIGNMENT": "🇨🇳 China Alignment",
-                    "NEUTRALITY": "⚖️ Neutrality",
+                    "US_ALIGNMENT": "US Alignment",
+                    "CHINA_ALIGNMENT": "China Alignment",
+                    "NEUTRALITY": "Neutrality",
                 }[x],
                 index=0,
                 key="calc_posture",
             )
+        with dd3:
             crisis = st.selectbox(
                 "Crisis type",
                 options=["iran", "taiwan", "ukraine", "generic"],
                 format_func=lambda x: {
-                    "iran": "🇮🇷 Iran (2026 escalation)",
-                    "taiwan": "🇹🇼 Taiwan (strait crisis)",
-                    "ukraine": "🇺🇦 Ukraine (continued conflict)",
-                    "generic": "⚡ Generic great-power crisis",
+                    "iran": "Iran (2026 escalation)",
+                    "taiwan": "Taiwan (strait crisis)",
+                    "ukraine": "Ukraine (continued conflict)",
+                    "generic": "Generic great-power crisis",
                 }[x],
                 index=0,
                 key="calc_crisis",
             )
 
-        with p_col2:
+        # Row 2: First 3 sliders with explicit labels
+        s1, s2, s3 = st.columns(3)
+        with s1:
+            st.markdown('<p style="color:#E6EDF3; font-size:0.85rem; font-weight:600; margin-bottom:0;">Crisis Severity</p>', unsafe_allow_html=True)
             severity = st.slider(
-                "Crisis severity",
+                "Crisis Severity",
                 min_value=1, max_value=5, value=3, step=1,
                 help="1 = minor diplomatic dispute, 5 = existential military conflict",
+                label_visibility="collapsed",
             )
+        with s2:
+            st.markdown('<p style="color:#E6EDF3; font-size:0.85rem; font-weight:600; margin-bottom:0;">Power Response Intensity</p>', unsafe_allow_html=True)
             power_response = st.slider(
-                "Power response intensity",
+                "Power Response Intensity",
                 min_value=1, max_value=5, value=3, step=1,
                 help="How aggressively great powers reward/punish alignment choices",
+                label_visibility="collapsed",
             )
+        with s3:
+            st.markdown('<p style="color:#E6EDF3; font-size:0.85rem; font-weight:600; margin-bottom:0;">Time Horizon (Years)</p>', unsafe_allow_html=True)
             time_horizon = st.slider(
-                "Time horizon (years)",
+                "Time Horizon (Years)",
                 min_value=1, max_value=5, value=3, step=1,
                 help="Planning horizon over which costs/benefits are assessed",
+                label_visibility="collapsed",
             )
 
-        with p_col3:
+        # Row 3: Last 3 sliders with explicit labels
+        s4, s5, s6 = st.columns(3)
+        with s4:
+            st.markdown('<p style="color:#E6EDF3; font-size:0.85rem; font-weight:600; margin-bottom:0;">Opposition Strength</p>', unsafe_allow_html=True)
             opposition = st.slider(
-                "Opposition strength",
+                "Opposition Strength",
                 min_value=0.0, max_value=1.0, value=0.5, step=0.05,
                 help="Domestic political opposition capacity (0 = none, 1 = strong)",
+                label_visibility="collapsed",
             )
+        with s5:
+            st.markdown('<p style="color:#E6EDF3; font-size:0.85rem; font-weight:600; margin-bottom:0;">Previous Alignment Depth</p>', unsafe_allow_html=True)
             prev_depth = st.slider(
-                "Previous alignment depth",
+                "Previous Alignment Depth",
                 min_value=0.0, max_value=1.0, value=0.5, step=0.05,
                 help="Depth of prior alignment relationship with the chosen power",
+                label_visibility="collapsed",
             )
+        with s6:
+            st.markdown('<p style="color:#E6EDF3; font-size:0.85rem; font-weight:600; margin-bottom:0;">Institutional Entanglement</p>', unsafe_allow_html=True)
             entanglement = st.slider(
-                "Institutional entanglement",
+                "Institutional Entanglement",
                 min_value=0.0, max_value=1.0, value=0.5, step=0.05,
                 help="Depth of institutional ties (military, financial, trade agreements)",
+                label_visibility="collapsed",
             )
 
     st.divider()
@@ -1227,7 +1321,7 @@ def page_calculator():
         run_btn = st.button("▶ Run Scenario", type="primary", use_container_width=True)
     with col_exp:
         st.markdown(
-            '<div style="padding: 0.5rem 0; font-size: 0.82rem; color: #848456;">'
+            '<div style="padding: 0.5rem 0; font-size: 0.82rem; color: #8B949E;">'
             "Click Run Scenario to calculate the full alignment tax breakdown including "
             "channel-by-channel analysis, behavioral modifiers, and historical comparisons."
             "</div>",
@@ -1280,7 +1374,7 @@ def page_calculator():
         ci_lo = result["ci_lower_mn"]
         ci_hi = result["ci_upper_mn"]
 
-        kpi1, kpi2, kpi3, kpi4, kpi5 = st.columns(5)
+        kpi1, kpi2, kpi3 = st.columns(3)
         with kpi1:
             st.metric(
                 "Net Alignment Tax",
@@ -1292,6 +1386,7 @@ def page_calculator():
             st.metric("Gross Gains", f"${result['gross_gains_mn']:,.0f}M")
         with kpi3:
             st.metric("Gross Costs", f"${result['gross_costs_mn']:,.0f}M")
+        kpi4, kpi5, _ = st.columns(3)
         with kpi4:
             st.metric("95% CI Lower", _fmt_mn(ci_lo))
         with kpi5:
@@ -1299,7 +1394,7 @@ def page_calculator():
 
         # Interpretation text
         st.markdown(
-            f'<div class="info-card">{result["interpretation"].replace(chr(10), "<br>")}</div>',
+            f'<div class="info-card">{_md_to_html(result["interpretation"].replace(chr(10), "<br>"))}</div>',
             unsafe_allow_html=True,
         )
 
@@ -1309,7 +1404,7 @@ def page_calculator():
         chart_col1, chart_col2 = st.columns([3, 2])
 
         with chart_col1:
-            st.subheader("Channel-by-Channel Breakdown")
+            st.subheader("Channel-by-Channel Breakdown", anchor=False)
             try:
                 fig_wf = alignment_tax_waterfall(result)
                 st.plotly_chart(fig_wf, use_container_width=True)
@@ -1317,7 +1412,7 @@ def page_calculator():
                 st.error(f"Waterfall chart error: {e}")
 
         with chart_col2:
-            st.subheader("All Postures Compared")
+            st.subheader("All Postures Compared", anchor=False)
             try:
                 fig_comp = scenario_comparison_bar(compare_df)
                 st.plotly_chart(fig_comp, use_container_width=True)
@@ -1327,7 +1422,7 @@ def page_calculator():
         st.divider()
 
         # ── Behavioral modifiers panel ─────────────────────────────────────────
-        st.subheader("Behavioral Modifiers")
+        st.subheader("Behavioral Modifiers", anchor=False)
         beh = result["behavioral_modifiers"]
 
         beh_col1, beh_col2, beh_col3 = st.columns(3)
@@ -1358,7 +1453,7 @@ def page_calculator():
         loss_col1, loss_col2 = st.columns([2, 3])
 
         with loss_col1:
-            st.subheader("Loss Aversion (Prospect Theory)")
+            st.subheader("Loss Aversion (Prospect Theory)", anchor=False)
             la = beh["loss_aversion"]
             st.metric("Gains Considered", f"${la['gains_mn']:,.0f}M")
             st.metric("Losses Considered", f"${la['losses_mn']:,.0f}M")
@@ -1381,31 +1476,31 @@ def page_calculator():
 
         # ── Historical precedents ──────────────────────────────────────────────
         st.divider()
-        st.subheader("Historical Precedent Comparisons")
+        st.subheader("Historical Precedent Comparisons", anchor=False)
 
         hist = result["historical_comparisons"]
         if hist:
             for comp in hist:
                 impact_sign = "📈" if (comp.get("impact_usd_mn") or 0) > 0 else "📉"
                 conf_color = {
-                    "high": "#20808D",
+                    "high": "#1B6CA8",
                     "medium": "#FFC553",
                     "low": "#A84B2F",
-                }.get(str(comp.get("confidence", "medium")), "#848456")
+                }.get(str(comp.get("confidence", "medium")), "#8B949E")
 
                 st.markdown(
                     f"""
                     <div class="info-card">
                         <strong>{impact_sign} {comp['country']} ({comp['year']})</strong>
                         &nbsp;
-                        <span style="font-size:0.75rem; background:{conf_color}; color:white;
+                        <span style="font-size:0.75rem; background:{conf_color}; color:#E6EDF3;
                                      padding:0.1rem 0.4rem; border-radius:3px;">
                             {str(comp.get('confidence','?')).upper()} CONFIDENCE
                         </span>
                         <br>
                         {comp['event']}
                         <br>
-                        <span style="color:#848456; font-size:0.82rem;">
+                        <span style="color:#8B949E; font-size:0.82rem;">
                             Impact: <strong>${comp.get('impact_usd_mn','?')}M</strong>
                             ({comp.get('impact_pct','?')}%) ·
                             Duration: {comp.get('duration_years','?')} years
@@ -1427,7 +1522,7 @@ def page_calculator():
 
         # ── Panel estimator ────────────────────────────────────────────────────
         st.divider()
-        st.subheader("Panel Estimator — DiD Estimates")
+        st.subheader("Panel Estimator — DiD Estimates", anchor=False)
         st.markdown(
             '<div class="info-card">'
             "Simplified difference-in-differences estimates using historical alignment "
@@ -1450,7 +1545,7 @@ def page_calculator():
                     f"{agoa_est['estimate_pct']:.1f}%",
                     help=f"Bootstrapped SE: {agoa_est['se_pct']:.2f}pp",
                 )
-                st.metric("Absolute impact", f"${agoa_est['absolute_impact_mn']:.0f}M")
+                st.metric("AGOA Absolute Impact", f"${agoa_est['absolute_impact_mn']:.0f}M")
                 st.caption(
                     f"N={agoa_est['n_episodes']} episodes · "
                     f"95% CI: [{agoa_est['ci_pct'][0]:.1f}%, {agoa_est['ci_pct'][1]:.1f}%] · "
@@ -1463,18 +1558,26 @@ def page_calculator():
                     f"{cn_est['estimate_pct']:+.1f}%",
                     help=f"SE: {cn_est['se_pct']:.2f}pp",
                 )
-                st.metric("Absolute impact", _fmt_mn(cn_est["absolute_impact_mn"]))
+                st.metric("China Invest. Impact", _fmt_mn(cn_est["absolute_impact_mn"]))
                 st.caption(cn_est["interpretation"])
 
+            panel_summary = panel_summary.rename(columns={
+                "agoa_impact_mn": "AGOA Impact ($M)",
+                "cn_invest_impact_mn": "China Invest. ($M)",
+                "agoa_ci_lower": "AGOA CI Lower",
+                "agoa_ci_upper": "AGOA CI Upper",
+                "cn_ci_lower": "China CI Lower",
+                "cn_ci_upper": "China CI Upper",
+            })
             st.dataframe(
                 panel_summary.style.format(
                     {
-                        "agoa_impact_mn": "${:,.0f}M",
-                        "cn_invest_impact_mn": "${:,.0f}M",
-                        "agoa_ci_lower": "{:.1f}%",
-                        "agoa_ci_upper": "{:.1f}%",
-                        "cn_ci_lower": "{:.1f}%",
-                        "cn_ci_upper": "{:.1f}%",
+                        "AGOA Impact ($M)": "${:,.0f}M",
+                        "China Invest. ($M)": "${:,.0f}M",
+                        "AGOA CI Lower": "{:.1f}%",
+                        "AGOA CI Upper": "{:.1f}%",
+                        "China CI Lower": "{:.1f}%",
+                        "China CI Upper": "{:.1f}%",
                     }
                 ),
                 use_container_width=True,
@@ -1495,7 +1598,7 @@ def page_calculator():
 
 
 # ═════════════════════════════════════════════════════════════════════════════
-# ── PAGE 5: GHANA DEEP DIVE ───────────────────────────────────────────────────
+# ── PAGE 5: ANALYST'S WORKBENCH ──────────────────────────────────────────────
 # ═════════════════════════════════════════════════════════════════════════════
 
 
@@ -1504,10 +1607,10 @@ def page_ghana():
         '<div class="alignment-header">'
         "<h1>"
         '<span class="layer-badge">Layer 4</span>'
-        "Ghana Deep Dive"
+        "Analyst's Workbench"
         "</h1>"
-        "<p>Full granular exposure analysis · AGOA vulnerability · "
-        "Chinese deal portfolio · IMF/MCC dependency · Commodity routing risk</p>"
+        "<p>Country-level deep dive · Economic dependency profile · "
+        "Alignment tax comparison · Granular exposure analysis</p>"
         "</div>",
         unsafe_allow_html=True,
     )
@@ -1521,46 +1624,69 @@ def page_ghana():
         st.error(f"Data loading error: {e}")
         return
 
-    # ── Top KPIs ───────────────────────────────────────────────────────────────
-    g_row = econ_df[econ_df["country"] == "Ghana"].iloc[0]
-
-    k1, k2, k3, k4, k5, k6 = st.columns(6)
-    with k1:
-        st.metric("US Trade", _fmt_bn(g_row["us_trade_bn"]))
-    with k2:
-        st.metric("China Trade", _fmt_bn(g_row["china_trade_bn"]))
-    with k3:
-        st.metric("AGOA Value", f"${g_row['agoa_value_mn']:.0f}M")
-    with k4:
-        st.metric("US ODA", f"${g_row['us_oda_mn']:.0f}M")
-    with k5:
-        st.metric("Chinese Debt %", f"{g_row['china_debt_pct_external']:.1f}%")
-    with k6:
-        st.metric("China Trade Dom.", f"{g_row['china_trade_dominance']:.1%}")
+    # ── Country selector ──────────────────────────────────────────────────────
+    selected_country = st.selectbox(
+        "Select Focus Country",
+        options=FOCUS_COUNTRIES,
+        index=0,
+        key="workbench_country",
+    )
 
     st.divider()
 
-    # ── 6-panel dashboard ──────────────────────────────────────────────────────
-    st.subheader("Ghana Dashboard — Alignment Tax Exposure")
+    # ══════════════════════════════════════════════════════════════════════════
+    # Section A — Economic Dependency Profile
+    # ══════════════════════════════════════════════════════════════════════════
+    st.subheader(f"Economic Dependency Profile — {selected_country}", anchor=False)
+
+    c_row = econ_df[econ_df["country"] == selected_country].iloc[0]
+
+    # Radar chart
     try:
-        fig_gh = ghana_dashboard(ghana_data)
-        st.plotly_chart(fig_gh, use_container_width=True)
+        fig_radar = economic_exposure_radar(selected_country, econ_df)
+        st.plotly_chart(fig_radar, use_container_width=True)
     except Exception as e:
-        st.error(f"Ghana dashboard error: {e}")
+        st.error(f"Radar chart error: {e}")
+
+    # KPI cards (3 per row)
+    k1, k2, k3 = st.columns(3)
+    with k1:
+        st.metric("US Trade", _fmt_bn(c_row["us_trade_bn"]))
+    with k2:
+        st.metric("China Trade", _fmt_bn(c_row["china_trade_bn"]))
+    with k3:
+        st.metric("China Debt Share", f"{c_row['china_debt_pct_external']:.1f}%")
+
+    # Auto-generated dependency summary
+    exposures = {
+        "China Trade": c_row["china_trade_bn"],
+        "US Trade": c_row["us_trade_bn"],
+        "China FDI": c_row["china_fdi_stock_bn"],
+        "US FDI": c_row["us_fdi_stock_bn"],
+        "US ODA": c_row["us_oda_mn"] / 1000,
+        "China Debt": c_row["china_debt_pct_external"] / 10,
+    }
+    sorted_exp = sorted(exposures.items(), key=lambda x: x[1], reverse=True)
+    st.markdown(
+        f'<div class="info-card"><strong>{selected_country}</strong> shows '
+        f'<strong>{sorted_exp[0][0]}</strong> as its primary dependency, with '
+        f'<strong>{sorted_exp[1][0]}</strong> as secondary exposure.</div>',
+        unsafe_allow_html=True,
+    )
 
     st.divider()
 
-    # ── Scenario analysis: all 3 postures (Iran crisis) ───────────────────────
-    st.subheader("Iran Crisis — All Posture Scenarios for Ghana")
+    # ══════════════════════════════════════════════════════════════════════════
+    # Section B — Alignment Tax Summary
+    # ══════════════════════════════════════════════════════════════════════════
+    st.subheader(f"Alignment Tax Summary — {selected_country}", anchor=False)
 
-    with st.spinner("Computing Ghana posture comparison..."):
+    with st.spinner(f"Computing posture comparison for {selected_country}..."):
         try:
-            ghana_compare = engine.compare_postures("Ghana", crisis_type="iran")
-            fig_ghana_comp = scenario_comparison_bar(ghana_compare)
-            st.plotly_chart(fig_ghana_comp, use_container_width=True)
+            wb_compare = engine.compare_postures(selected_country, crisis_type="iran")
 
-            # Tabular results
-            display_compare = ghana_compare.copy()
+            # Posture comparison table
+            display_compare = wb_compare.copy()
             display_compare["total_tax_mn"] = display_compare["total_tax_mn"].apply(
                 lambda v: f"${v:+,.0f}M"
             )
@@ -1593,10 +1719,63 @@ def page_ghana():
                 "CI Upper",
             ]
             st.dataframe(display_compare.set_index("Posture"), use_container_width=True)
+
+            # Net tax KPI cards for all 3 postures
+            tax_vals = wb_compare[["posture", "total_tax_mn"]].values.tolist()
+            _posture_short = {
+                "US_ALIGNMENT": "US Align Tax",
+                "CHINA_ALIGNMENT": "China Align Tax",
+                "NEUTRALITY": "Neutrality Tax",
+            }
+            t1, t2, t3 = st.columns(3)
+            for col_widget, (p_name, p_val) in zip([t1, t2, t3], tax_vals):
+                with col_widget:
+                    st.metric(
+                        _posture_short.get(p_name, p_name),
+                        _fmt_mn(p_val),
+                        delta="COST" if p_val < 0 else "GAIN",
+                        delta_color="inverse" if p_val < 0 else "normal",
+                    )
+
+            # Waterfall chart for highest-stakes posture
+            highest_idx = wb_compare["total_tax_mn"].abs().idxmax()
+            highest_posture = wb_compare.loc[highest_idx, "posture"]
+            wb_result = engine.run_scenario(
+                country=selected_country,
+                posture=highest_posture,
+                crisis_type="iran",
+            )
+            fig_wf = alignment_tax_waterfall(wb_result)
+            st.plotly_chart(fig_wf, use_container_width=True)
+
+            # Comparison bar chart
+            fig_comp = scenario_comparison_bar(wb_compare)
+            st.plotly_chart(fig_comp, use_container_width=True)
+
         except Exception as e:
-            st.error(f"Ghana scenario comparison error: {e}")
+            st.error(f"Alignment tax comparison error: {e}")
 
     st.divider()
+
+    # ── Ghana-specific detailed analysis ─────────────────────────────────────
+    if selected_country == "Ghana":
+        st.subheader("Ghana Dashboard — Alignment Tax Exposure", anchor=False)
+        try:
+            fig_gh = ghana_dashboard(ghana_data)
+            st.plotly_chart(fig_gh, use_container_width=True)
+        except Exception as e:
+            st.error(f"Ghana dashboard error: {e}")
+
+        st.divider()
+
+    if selected_country != "Ghana":
+        st.markdown(
+            '<div class="info-card">Detailed sub-sector analysis (AGOA, Chinese deals, '
+            'IMF/MCC, commodity routing) is currently available for Ghana only. '
+            'Select Ghana from the country selector above to view.</div>',
+            unsafe_allow_html=True,
+        )
+        return
 
     # ── AGOA vulnerability table ───────────────────────────────────────────────
     tab_agoa, tab_deals, tab_imf, tab_commod = st.tabs(
@@ -1604,7 +1783,7 @@ def page_ghana():
     )
 
     with tab_agoa:
-        st.subheader("AGOA Sector Vulnerability Assessment")
+        st.subheader("AGOA Sector Vulnerability Assessment", anchor=False)
         st.markdown(
             '<div class="info-card">'
             "AGOA (African Growth and Opportunity Act) provides duty-free access to the "
@@ -1653,7 +1832,7 @@ def page_ghana():
             st.metric("Jobs at Risk (High+)", f"{agoa_df[agoa_df['vulnerability'].isin(['high','very high'])]['jobs_supported'].sum():,}")
 
     with tab_deals:
-        st.subheader("Chinese Infrastructure & Economic Deal Portfolio")
+        st.subheader("Chinese Infrastructure & Economic Deal Portfolio", anchor=False)
         st.markdown(
             '<div class="info-card">'
             "Ghana's Chinese deal portfolio totals ~$4.03B, with the Sinohydro "
@@ -1704,7 +1883,7 @@ def page_ghana():
         )
 
     with tab_imf:
-        st.subheader("IMF & MCC Dependency Mapping")
+        st.subheader("IMF & MCC Dependency Mapping", anchor=False)
 
         imf_df = ghana_data["imf_program"]
         mcc_df = ghana_data["mcc_compact"]
@@ -1759,7 +1938,7 @@ def page_ghana():
             )
 
     with tab_commod:
-        st.subheader("Commodity Routing & Export Destination Risk")
+        st.subheader("Commodity Routing & Export Destination Risk", anchor=False)
         st.markdown(
             '<div class="info-card">'
             "Ghana's commodity export structure creates asymmetric vulnerability: "
@@ -1795,10 +1974,10 @@ def page_ghana():
         with c1:
             st.metric("Total Commodity Exports", f"${total_exports:.2f}B")
         with c2:
-            st.metric("China-Routed (weighted)", f"${china_weighted:.2f}B",
+            st.metric("China-Routed", f"${china_weighted:.2f}B",
                       delta=f"{china_weighted/total_exports:.1%} share")
         with c3:
-            st.metric("US-Routed (weighted)", f"${us_weighted:.2f}B",
+            st.metric("US-Routed", f"${us_weighted:.2f}B",
                       delta=f"{us_weighted/total_exports:.1%} share")
 
     # ── Export Ghana data ──────────────────────────────────────────────────────
@@ -1835,7 +2014,7 @@ _PAGE_MAP = {
     "📡  Alignment Signal Coding": page_signal_coding,
     "💰  Economic Dependency": page_economic_dependency,
     "⚖️  Alignment Tax Calculator": page_calculator,
-    "🇬🇭  Ghana Deep Dive": page_ghana,
+    "📊  Analyst's Workbench": page_ghana,
 }
 
 try:
