@@ -25,19 +25,23 @@ from typing import Optional, List, Dict, Any
 
 # ── Brand palette ─────────────────────────────────────────────────────────────
 BRAND = {
-    "primary":     "#20808D",
-    "terra":       "#A84B2F",
-    "dark_teal":   "#1B474D",
-    "light_cyan":  "#BCE2E7",
-    "mauve":       "#944454",
-    "gold":        "#FFC553",
-    "olive":       "#848456",
-    "brown":       "#6E522B",
-    "bg_offwhite": "#FCFAF6",
-    "bg_paper":    "#F3F3EE",
-    "text":        "#13343B",
-    "grid":        "#E5E3D4",
-    "border":      "#D6D4C5",
+    "primary":        "#1B6CA8",   # deep teal-blue accent
+    "terra":          "#A84B2F",
+    "dark_teal":      "#1B474D",   # secondary accent (continuity)
+    "light_cyan":     "#BCE2E7",
+    "mauve":          "#944454",
+    "gold":           "#FFC553",
+    "olive":          "#8B949E",   # secondary text grey
+    "brown":          "#6E522B",
+    "bg_offwhite":    "#0D1117",   # near-black canvas
+    "bg_paper":       "#161B22",   # panel/card background
+    "text":           "#E6EDF3",   # primary text off-white
+    "grid":           "#21262D",   # border/divider
+    "border":         "#21262D",
+    "positive":       "#3FB950",   # green highlight
+    "negative":       "#F85149",   # red highlight
+    "secondary_text": "#8B949E",   # muted grey
+    "sidebar_bg":     "#0F1923",   # sidebar background
 }
 
 # Ordered sequence for multi-series charts
@@ -77,12 +81,13 @@ def _base_layout(**overrides) -> dict:
                              color=BRAND["text"], size=12),
         title_font    = dict(family="Inter, Arial, sans-serif",
                              color=BRAND["text"], size=16, weight=600),
-        margin        = dict(l=60, r=40, t=70, b=60),
-        hoverlabel    = dict(bgcolor="white", bordercolor=BRAND["border"],
-                             font_size=12, font_family="Inter, Arial, sans-serif"),
-        legend        = dict(bgcolor="rgba(252,250,246,0.9)",
+        margin        = dict(l=60, r=120, t=70, b=60),
+        hoverlabel    = dict(bgcolor=BRAND["bg_paper"], bordercolor=BRAND["border"],
+                             font_size=12, font_family="Inter, Arial, sans-serif",
+                             font_color=BRAND["text"]),
+        legend        = dict(bgcolor="rgba(22,27,34,0.9)",
                              bordercolor=BRAND["border"], borderwidth=1,
-                             font_size=11),
+                             font=dict(color=BRAND["text"], size=12)),
     )
     layout.update(overrides)
     return layout
@@ -135,7 +140,7 @@ def alignment_space_3d(countries_df: pd.DataFrame) -> go.Figure:
             hoverinfo="text",
             marker=dict(
                 size=8, color=color, opacity=0.85,
-                line=dict(color="white", width=0.8),
+                line=dict(color=BRAND["bg_offwhite"], width=0.8),
             ),
         ))
 
@@ -509,7 +514,7 @@ def historical_precedent_timeline(episodes_df: pd.DataFrame) -> go.Figure:
             marker=dict(
                 size=size, color=color,
                 symbol="circle",
-                line=dict(color="white", width=1.2),
+                line=dict(color=BRAND["bg_offwhite"], width=1.2),
                 opacity=0.88,
             ),
         ))
@@ -585,22 +590,30 @@ def ghana_dashboard(ghana_data: dict) -> go.Figure:
     """
     fig = make_subplots(
         rows=3, cols=2,
-        subplot_titles=[
-            "AGOA Exports by Sector (USD Million)",
-            "Commodity Export Destinations (% of total)",
-            "Chinese Infrastructure Deals Portfolio",
-            "Economic Timeline: Key Alignment Shocks",
-            "IMF & MCC Compact Overview",
-            "Trade Dependency: US vs China",
-        ],
         specs=[
             [{"type": "bar"},         {"type": "bar"}],
             [{"type": "table"},       {"type": "scatter"}],
             [{"type": "table"},       {"type": "bar"}],
         ],
-        vertical_spacing=0.14,
+        vertical_spacing=0.16,
         horizontal_spacing=0.08,
     )
+
+    # Manual subplot titles to avoid collision
+    _subplot_titles = [
+        ("AGOA Exports by Sector (USD Million)", 0.22, 1.01),
+        ("Commodity Export Destinations (% of total)", 0.78, 1.01),
+        ("Chinese Infrastructure Deals Portfolio", 0.22, 0.62),
+        ("Economic Timeline: Key Alignment Shocks", 0.78, 0.62),
+        ("IMF & MCC Compact Overview", 0.22, 0.28),
+        ("Trade Dependency: US vs China", 0.78, 0.28),
+    ]
+    for text, x_frac, y_frac in _subplot_titles:
+        fig.add_annotation(
+            text=f"<b>{text}</b>", xref="paper", yref="paper",
+            x=x_frac, y=y_frac, showarrow=False,
+            font=dict(size=13, color=BRAND["text"]),
+        )
 
     # ── Panel 1: AGOA sectors ────────────────────────────────────────────
     agoa = ghana_data["agoa_sectors"]
@@ -640,7 +653,7 @@ def ghana_dashboard(ghana_data: dict) -> go.Figure:
             values=["<b>Deal</b>", "<b>Year</b>", "<b>Value ($B)</b>",
                     "<b>Sector</b>", "<b>Status</b>"],
             fill_color=BRAND["dark_teal"],
-            font=dict(color="white", size=10),
+            font=dict(color=BRAND["text"], size=10),
             align="left", height=28,
         ),
         cells=dict(
@@ -673,7 +686,7 @@ def ghana_dashboard(ghana_data: dict) -> go.Figure:
             textfont=dict(size=8),
             marker=dict(size=abs(row["economic_impact_mn"]) / 200 + 8,
                         color=col, opacity=0.9,
-                        line=dict(color="white", width=1)),
+                        line=dict(color=BRAND["bg_offwhite"], width=1)),
             hovertext=[f"<b>{int(row['year'])}</b><br>{row['event']}<br>"
                        f"Impact: ${row['economic_impact_mn']:+.0f}M"],
             hoverinfo="text",
@@ -712,7 +725,7 @@ def ghana_dashboard(ghana_data: dict) -> go.Figure:
             values=["<b>Program</b>", "<b>Year</b>", "<b>Value</b>",
                     "<b>Status</b>", "<b>Notes</b>"],
             fill_color=BRAND["primary"],
-            font=dict(color="white", size=10),
+            font=dict(color=BRAND["text"], size=10),
             align="left", height=28,
         ),
         cells=dict(
@@ -751,6 +764,7 @@ def ghana_dashboard(ghana_data: dict) -> go.Figure:
                 x=0.5, xanchor="center",
             ),
             height=1100,
+            margin=dict(l=160, r=120, t=90, b=60),
             barmode="stack",   # stacked for destination chart
         )
     )
@@ -836,7 +850,7 @@ def alignment_heatmap(
         orientation="h",
         marker=dict(
             color=bar_colors,
-            line=dict(color="white", width=0.5),
+            line=dict(color=BRAND["bg_offwhite"], width=0.5),
         ),
         text=[f"{v:.3f}" for v in df[metric].values],
         textposition="outside",
@@ -858,6 +872,7 @@ def alignment_heatmap(
             ),
             yaxis=dict(gridcolor=BRAND["grid"], tickfont=dict(size=9)),
             height=900,
+            margin=dict(l=160, r=120, t=70, b=60),
             showlegend=False,
         )
     )
@@ -1209,7 +1224,7 @@ def loss_aversion_curve(
             mode="markers+text",
             text=[text], textposition=pos,
             marker=dict(size=12, color=color,
-                        symbol="star", line=dict(color="white", width=1)),
+                        symbol="star", line=dict(color=BRAND["bg_offwhite"], width=1)),
             showlegend=False,
             textfont=dict(size=10, color=color),
         ))
@@ -1231,7 +1246,7 @@ def loss_aversion_curve(
               f"Ratio: {abs(loss_pv/gain_pv):.1f}×"),
         showarrow=True, arrowhead=2, arrowcolor=BRAND["gold"],
         bordercolor=BRAND["gold"], borderwidth=1,
-        bgcolor="white", font=dict(size=10, color=BRAND["text"]),
+        bgcolor=BRAND["bg_paper"], font=dict(size=10, color=BRAND["text"]),
         ax=80, ay=-40,
     )
 
@@ -1254,6 +1269,7 @@ def loss_aversion_curve(
                 zeroline=True, zerolinecolor=BRAND["text"],
             ),
             height=520,
+            margin=dict(l=80, r=60, t=70, b=60),
             legend=dict(orientation="h", x=0.5, xanchor="center", y=-0.16),
         )
     )
